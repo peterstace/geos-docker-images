@@ -17,7 +17,7 @@ RUN wget https://download.osgeo.org/geos/geos-$GEOS_VERSION.tar.bz2 && \
 # Build and install GEOS
 WORKDIR /tmp/geos-$GEOS_VERSION
 RUN cmake . -DCMAKE_INSTALL_PREFIX=/usr/local && \
-    make && \
+    make -j4 && \
     make install
 
 # Use a multi-stage build to create the final image
